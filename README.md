@@ -113,6 +113,13 @@ extensions:
 * With the flag `ENRMRKD_FLAG_COLLAPSEWHITESPACE`, a non-trivial whitespace is
   collapsed into a single space.
 
+* With the flag `ENRMRKD_FLAG_ESCAPEDTEXT`, a backslash-escaped character
+  (e.g. `\*`) in normal text is reported as `ENRMRKD_TEXT_ESCAPED` instead of
+  `ENRMRKD_TEXT_NORMAL`. The text is still the character without its backslash,
+  so a renderer that treats both types alike produces the same output. It lets
+  an application tell an escape from the literal character, for example to keep
+  the backslash where it was meant as a path separator.
+
 * With the flag `ENRMRKD_FLAG_FOOTNOTES`, footnote references and definitions are
   supported (e.g. `[^note]` and `[^note]: Footnote text`). Referenced
   definitions are emitted at the end of the document in first-reference order.
